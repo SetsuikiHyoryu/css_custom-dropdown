@@ -76,8 +76,25 @@ const controlMenu = (event: Event): void => {
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
-  padding: 0.3rem 0.5rem;
+  padding: 0.3rem 2rem 0.3rem 0.5rem;
   width: 100%;
+}
+
+.dropdown::before {
+  border: 0.3rem solid transparent;
+  border-top: 0.5rem solid #333;
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  right: 0.7rem;
+  top: 30%;
+  transform: rotate(0);
+  transition: transform 300ms ease-in-out, top 300ms ease-in-out;
+}
+
+.dropdown:focus-within::before {
+  top: 15%;
+  transform: rotate(180deg);
 }
 
 .menu {
