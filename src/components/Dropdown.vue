@@ -23,13 +23,13 @@ const select = (index: number): void => {
 const controlMenu = (event: Event): void => {
   const target = event.target as HTMLElement
 
-  // 如果菜單打開則執行失焦
+  // 如果菜單已打開則執行失焦
   if (isMenuDisplayed.value) {
     target.blur()
     return
   }
 
-  // 如果菜單未打開則打開菜單（即不需要做任何操作）
+  // 如果菜單未打開則打開菜單（即僅標記菜單已打開）
   isMenuDisplayed.value = true
 }
 </script>
