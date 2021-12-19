@@ -91,11 +91,12 @@ const controlMenu = (event: Event): void => {
   position: absolute;
   pointer-events: none;
   top: calc(100% + 0.5rem);
-  transform: translateY(-2rem);
+  transform: translateY(-1rem);
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
   width: 100%;
 }
 
+.menu:active,
 .display-bar:focus + .menu {
   opacity: 1;
   pointer-events: auto;
