@@ -3,19 +3,26 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import Selector from './components/Selector.vue'
 import Article from './components/Article.vue'
+import { ref } from 'vue'
+import { articles } from './assets/data'
+import { ArticleInterface } from './typings'
 
-const titleList: string[] = [
-  '共產黨宣言',
-  '尋烏調查',
-  '紀念白求恩',
-  '爲人民服務',
-  '愚公移山',
-]
+const titleList: string[] = articles.map((item: ArticleInterface) => item.title)
+
+const selectedArticleID = ref<number>(0)
 </script>
 
 <template>
-  <Selector :list="titleList" />
-  <Article :id="2" />
+  <Selector
+    :list="titleList"
+    @select-article="(id: number) => selectedArticleID = id"
+  />
+
+  <Article class="article" :id="selectedArticleID" />
 </template>
 
-<style></style>
+<style scoped>
+.article {
+  margin: 3rem 0 0;
+}
+</style>
